@@ -12,8 +12,6 @@ MotorVehicle uno()
 	return vehicle;
 }
 
-
-
 MotorVehicle barracuda()
 {
 	float tireDim[] = { 215,215,235,235 };
@@ -25,7 +23,7 @@ MotorVehicle barracuda()
 MotorVehicle compact()
 {
 	float tireDim[] = { 110,110};
-	MotorVehicle vehicle = MotorVehicle(tireDim, 2, "Cresent compact");
+	MotorVehicle vehicle = MotorVehicle(tireDim, 2, "Cresent compact");//(tireDim, 2, "Cresent compact");
 	vehicle.setBody(Body("Sport red", 0.40, 0.85));
 	vehicle.changeEngine(Engine(0.05, 1));
 	return vehicle;
@@ -36,13 +34,12 @@ void main()
 	string name="Kalle";
 	int credits = 1000;
 	int vehicles = 1;
-	MotorVehicle bilen;
+	
 	MotorVehicle garage[2];
 	MotorVehicle moped= compact();
 	moped.changeOwner(Owner(name));
 	garage[0] = moped;
-	bilen.print();
-	/*
+	
 	int input;
 	bool menu=true;
 	while (menu)
@@ -63,12 +60,12 @@ void main()
 			{
 				while (menu)
 				{
-					cout << "\n\t1: Inspect vehicle\n\t2: Repaint vehicle(200$)\n\t3: Replace engine(700$)\n\t4: Sell vehicle" << garage[selected].getValue();
+					cout << "\n\t1: Inspect vehicle\n\t2: Repaint vehicle(200$)\n\t3: Replace engine(700$)\n\t4: Sell vehicle";// << garage[selected-1].getValue();
 					cout << "Input: "; cin >> input;
 					switch (input)
 					{
 					case 1:
-						garage[selected].print();
+						garage[selected-1].print();
 					case 2:
 						//repaint
 					case 3:
@@ -102,5 +99,5 @@ void main()
 			break;
 		}
 	}
-	*/
+	
 }
