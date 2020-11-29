@@ -19,6 +19,7 @@ public:
 	void setBody(Body _body);
 	string getModel();
 	int getValue();
+	Engine getEngine();
 	void print();
 private:
 	Engine engine;

@@ -101,7 +101,12 @@ string MotorVehicle::getModel()
 
 int MotorVehicle::getValue()
 {
-	return value;
+	return value+engine.getValue();
+}
+
+Engine MotorVehicle::getEngine()
+{
+	return engine;
 }
 
 
