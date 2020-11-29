@@ -1,8 +1,9 @@
 #include "MotorVehicle.h"
 
-MotorVehicle::MotorVehicle(float* _tireDiameters, int _numberOfTires, string _model)
+MotorVehicle::MotorVehicle(float* _tireDiameters, int _numberOfTires, string _model,int _value)
+	:tireDiameters(_tireDiameters), numberOfTires(_numberOfTires), model(_model),value(_value)
 {
-	numberOfTires = _numberOfTires; model = _model;
+	numberOfTires = _numberOfTires; model = _model;// value = _value;
 	if (_tireDiameters)
 	{
 		tireDiameters = new float[numberOfTires];
@@ -11,6 +12,55 @@ MotorVehicle::MotorVehicle(float* _tireDiameters, int _numberOfTires, string _mo
 			tireDiameters[i] = _tireDiameters[i];
 		}
 	}
+}
+
+MotorVehicle::MotorVehicle(const MotorVehicle& other)
+	:engine(other.engine),body(other.body), owner(other.owner),numberOfTires(other.numberOfTires), model(other.model),value(other.value)
+{
+	tireDiameters = new float[numberOfTires];
+	for (int i = 0; i < numberOfTires; i++)
+	{
+		tireDiameters[i] = other.tireDiameters[i];
+	}
+}
+
+const MotorVehicle& MotorVehicle::operator=(const MotorVehicle& other)
+{
+	if (this != &other)
+	{
+		engine = other.engine;
+		body = other.body;
+		owner = other.owner;
+		numberOfTires = other.numberOfTires;
+		model = other.model;
+		value = other.value;
+		delete[] tireDiameters;
+		tireDiameters = new float[numberOfTires];
+		for (int i = 0; i < numberOfTires; i++)
+		{
+			tireDiameters[i] = other.tireDiameters[i];
+		}
+	}
+	return *this;
+}
+
+const MotorVehicle& MotorVehicle::operator=(MotorVehicle&& other) noexcept
+{
+	if (this != &other)
+	{
+		engine = other.engine;
+		body = other.body;
+		owner = other.owner;
+		numberOfTires = other.numberOfTires;
+		model = other.model;
+		value = other.value;
+		delete[] tireDiameters;
+		tireDiameters = other.tireDiameters;
+		numberOfTires = other.numberOfTires;
+		other.tireDiameters = nullptr;
+		other.numberOfTires = 0;
+	}
+	return *this;
 }
 
 void MotorVehicle::changeOwner(Owner _owner)
@@ -47,6 +97,13 @@ string MotorVehicle::getModel()
 {
 	return model;
 }
+
+
+int MotorVehicle::getValue()
+{
+	return value;
+}
+
 
 
 void MotorVehicle::print()
