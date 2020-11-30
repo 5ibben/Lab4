@@ -41,7 +41,7 @@
     <ClCompile Include="Body.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Make_a_vehicle.cpp">
+    <ClCompile Include="pimp_my_uno.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

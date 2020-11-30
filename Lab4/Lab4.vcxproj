@@ -147,7 +147,7 @@
   <ItemGroup>
     <ClCompile Include="Body.cpp" />
     <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="Make_a_vehicle.cpp" />
+    <ClCompile Include="pimp_my_uno.cpp" />
     <ClCompile Include="MotorVehicle.cpp" />
     <ClCompile Include="Owner.cpp" />
   </ItemGroup>

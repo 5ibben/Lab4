@@ -3,7 +3,6 @@
 MotorVehicle::MotorVehicle(float* _tireDiameters, int _numberOfTires, string _model,int _value)
 	:tireDiameters(_tireDiameters), numberOfTires(_numberOfTires), model(_model),value(_value)
 {
-	numberOfTires = _numberOfTires; model = _model;// value = _value;
 	if (_tireDiameters)
 	{
 		tireDiameters = new float[numberOfTires];
