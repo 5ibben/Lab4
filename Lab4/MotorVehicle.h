@@ -12,7 +12,7 @@ public:
 	const MotorVehicle& operator=(const MotorVehicle& other);//assignment operator
 	const MotorVehicle& operator=(MotorVehicle&& other) noexcept;//assignment move operator
 	
-	//class functions
+	//member functions
 	void changeOwner(Owner _owner);
 	void changeColor(string _color);
 	void changeEngine(Engine _engine);

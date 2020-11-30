@@ -1,8 +1,11 @@
 #pragma once
 #include "MotorVehicle.h"
+#include "Polyline.h"
+#include "Point2D.h"
 #include <vector>
 using namespace std;
 
+#pragma region Functions task.1
 //Vehicle creating functions, returns a MotorVehicle object with specified data.
 MotorVehicle uno()
 {
@@ -51,7 +54,8 @@ void engineVectorPop(vector<Engine>* veh, int index)
 	}
 }
 
-void main()
+//main program
+void task1PimpMyUno()
 {
 	int credits = 10000;
 	vector<Engine> classifieds = { Engine(7.2,8,"Chrysler 440 ci RB V8",2400),Engine(0.07,1,"Sachs 70cc, mikuni 20",350),Engine(1.3,4,"Old 1,3L Saab engine\T",200) };
@@ -219,4 +223,79 @@ void main()
 			break;
 		}
 	}
+}
+#pragma endregion
+
+void task2()
+{
+	//In main(), write the following test code (in this order):
+
+	//1. create two points and calculate the distance between two points and print the result,
+	Point2D p1;
+	Point2D p2(2,2);
+	cout << "Distance p1-p2: " << p1.distance(p2);
+
+	//2. create a new point by using either the copy constructor or operator (=),
+	Point2D p3 = p2;
+
+	//3. print the field values of the new point, and do a comparison with a and b to see which point has the same value with the newly created point,
+	cout << "\nValue of p3: " << p3.toString();
+	cout << "\nis p3 equal to p1?(1/0): "<< to_string(p3 == p1);
+	cout << "\nis p3 equal to p2?(1/0): " << to_string(p3 == p2);
+
+	//4. create a new point by using the + operator (i.e. add two existing point objects and assign the result to a new object),
+	Point2D p4 = p2 + p3;
+
+	//5. print the value of the new point and calculate the distance between any other point with new one,
+	cout << "\nValue of p4: "<< p4.toString();
+	cout << "\nDistance p1-p4: " << p1.distance(p4);
+
+	//6. and compare the new point with other points to see whether the new point is really a new or has the same value some other point. (make sure that the other points’ values are not all 0)
+	cout << "\nis p4 equal to p1?(1/0): " << to_string(p4 == p1);
+	cout << "\nis p4 equal to p2?(1/0): " << to_string(p4 == p2);
+	cout << "\nis p4 equal to p3?(1/0): " << to_string(p4 == p3);
+}
+
+void task3()
+{
+	//a bunch of test code for task3..
+	Point2D p1(1,1);
+	Point2D p2(2, 2);
+	Point2D p3(3, 3);
+	Point2D p4(4, 4);
+	Point2D p5(5, 5);
+	Polyline pline(3);
+
+	cout << "removing from empty line...\n";
+	pline.removeLast();
+	cout << "adding point p1...\n";
+	pline.add(p1);
+	cout << "Checking length...\n";
+	cout << "line length: " <<pline.length() << endl;
+	cout << "adding point p2...\n";
+	pline.add(p2);
+	cout << "Checking length...\n";
+	cout << "line length: " << pline.length() << endl;
+	cout << "adding point p4...\n";
+	pline.add(p4);
+	cout << "Checking length...\n";
+	cout << "line length: " << pline.length() << endl;
+	cout << "adding point p5...\n";
+	pline.add(p5);
+	cout << "checking number of points...\n";
+	cout << pline.points() << endl;
+	cout << "printing line...\n";
+	pline.print();
+	cout << "does the line contain p4?(bool:1/0) " << pline.contains(p4) << endl;
+	cout << "does the line contain p5?(bool:1/0) " << pline.contains(p5) << endl;
+	cout << "removing last point from line...\n";
+	pline.removeLast();
+	cout << "does the line still contain p4?(bool:1/0) " << pline.contains(p4) << endl;
+}
+
+void main()
+{
+	//task1PimpMyUno();
+	//task2();
+	//task3();
 }
