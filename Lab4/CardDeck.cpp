@@ -9,8 +9,7 @@ CardDeck::CardDeck(bool jokers)
 	{
 		for (int i = 0; i < 13; i++)
 		{
-			deck[i+c*13] = Card(i+1, c);
-			//std::cout << "i= " << i << " c= " << c << std::endl;
+			deck[i + c * 13] = Card(i + 1,c);//C6386 I´m too stupid to figure this out
 		}
 	}
 	
@@ -20,7 +19,6 @@ void CardDeck::print()
 {
 	for (int i = 0; i < deckSize; i++)
 	{
-		std::cout <<"at index "<<i<<": ";
 		deck[i].print(); 
 		std::cout << std::endl;
 	}

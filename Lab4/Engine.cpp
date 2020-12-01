@@ -1,17 +1,18 @@
 #include "Engine.h"
+#include <iostream>
 
 int Engine::getValue()
 {
 	return value;
 }
 
-string Engine::getModel()
+std::string Engine::getModel()
 {
 	return model;
 }
 
 void Engine::print()
 {
-	cout << "\nEngine:\n\tModel:"<<model;
-	cout << "\n\tEngine volume: " << sizeInlitres << "\n\tNumber of cylinders: " << numberOfCylinders << endl;
+	std::cout << "\nEngine:\n\tModel:"<<model;
+	std::cout << "\n\tEngine volume: " << sizeInlitres << "\n\tNumber of cylinders: " << numberOfCylinders << std::endl;
 }

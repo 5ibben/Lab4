@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <math.h>	//todo: overlo0ad operators: +, =, ==
+
 class Point2D
 {
 public:

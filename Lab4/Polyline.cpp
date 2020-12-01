@@ -1,4 +1,6 @@
 #include "Polyline.h"
+#include <iostream>
+#include <cassert>
 
 Polyline::Polyline()
 	:pointArray(nullptr),numberOfPoints(0),arrayLength(10){}

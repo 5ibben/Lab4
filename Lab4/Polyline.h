@@ -1,7 +1,5 @@
 #pragma once
 #include "Point2D.h"
-#include <iostream>
-#include <cassert>
 
 class Polyline
 {

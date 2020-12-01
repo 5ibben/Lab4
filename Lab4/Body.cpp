@@ -1,7 +1,8 @@
 #include "Body.h"
+#include <iostream>
 
 void Body::print()
 {
-	cout << "\nBody:";
-	cout << "\n\tColor: " << color << "\n\tWidth: " << width << "\n\tHeight: " << height<<" meters\n";
+	std::cout << "\nBody:";
+	std::cout << "\n\tColor: " << color << "\n\tWidth: " << width << "\n\tHeight: " << height<<" meters\n";
 }

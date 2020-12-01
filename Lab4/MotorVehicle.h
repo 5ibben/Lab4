@@ -6,7 +6,7 @@
 class MotorVehicle
 {
 public:
-	MotorVehicle(float* _tireDiameters = nullptr, int _numberOfTires = 4, string _model = "Unknown",int _value=0);//constructor
+	MotorVehicle(float* _tireDiameters = nullptr, int _numberOfTires = 4, std::string _model = "Unknown",int _value=0);//constructor
 	~MotorVehicle() {delete[] tireDiameters;}//destructor
 	MotorVehicle(const MotorVehicle& other);//copy constructor
 	const MotorVehicle& operator=(const MotorVehicle& other);//assignment operator
@@ -14,13 +14,13 @@ public:
 	
 	//member functions
 	void changeOwner(Owner _owner);
-	void changeColor(string _color);
+	void changeColor(std::string _color);
 	void changeEngine(Engine _engine);
 	void changeTires(float* _tireDiameters);
 	void setBody(Body _body);
 	void print();
 	int getValue();
-	string getModel();
+	std::string getModel();
 	Engine getEngine();
 private:
 	float* tireDiameters; // dynamically allocated array!
@@ -28,7 +28,7 @@ private:
 	int value;
 	Owner owner;
 	Body body;
-	string model;
+	std::string model;
 	Engine engine;
 };
 

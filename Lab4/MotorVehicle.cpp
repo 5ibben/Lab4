@@ -1,6 +1,7 @@
 #include "MotorVehicle.h"
+#include <iostream>
 
-MotorVehicle::MotorVehicle(float* _tireDiameters, int _numberOfTires, string _model,int _value)
+MotorVehicle::MotorVehicle(float* _tireDiameters, int _numberOfTires, std::string _model,int _value)
 	:tireDiameters(_tireDiameters), numberOfTires(_numberOfTires), model(_model),value(_value)
 {
 	if (_tireDiameters)
@@ -67,7 +68,7 @@ void MotorVehicle::changeOwner(Owner _owner)
 	owner = _owner;
 }
 
-void MotorVehicle::changeColor(string _color)
+void MotorVehicle::changeColor(std::string _color)
 {
 	body = Body(_color);
 }
@@ -92,7 +93,7 @@ void MotorVehicle::setBody(Body _body)
 	body = _body;
 }
 
-string MotorVehicle::getModel()
+std::string MotorVehicle::getModel()
 {
 	return model;
 }
@@ -112,21 +113,21 @@ Engine MotorVehicle::getEngine()
 
 void MotorVehicle::print()
 {
-	cout << "\nVehicle Data:\n";
-	cout<<"\nModel:\n\t" << model << endl;
+	std::cout << "\nVehicle Data:\n";
+	std::cout<<"\nModel:\n\t" << model << std::endl;
 	owner.print();
 	engine.print();
 	body.print();
-	cout << "\nTires:\n\tNumber of tires: " << numberOfTires << "\n\tTire Diameters: ";
+	std::cout << "\nTires:\n\tNumber of tires: " << numberOfTires << "\n\tTire Diameters: ";
 	if (tireDiameters)
 	{
 		for (int i = 0; i < numberOfTires; i++)
 		{
 			if (0 < i)
-				cout << "\t\t\t";
-			cout << tireDiameters[i] << endl;
+				std::cout << "\t\t\t";
+			std::cout << tireDiameters[i] << std::endl;
 		}
 	}
 	else
-		cout << "Unknown\n";
+		std::cout << "Unknown\n";
 }

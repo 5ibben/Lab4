@@ -1,0 +1,21 @@
+
+-----------What did you learn? What did you know already?-----------
+
+A whole bunch about constructors, operator overloads and stuff. Also I got a better understanding of scopes, instances, assignmentcalls and junk.
+
+
+-----------What was difficult in the lab? How did you overcome it?-----------
+
+I spent most of my time on task 1, learning how and when I needed constructors and different overloads.
+I had alot of errors, most were rooted in the fact that I needed to overload certain operators.
+after the first task I had a decent enough grip on things for the other tasks not to be so troublesome. 
+
+
+-----------How can the lab be improved?-----------
+
+I don´t know.
+
+
+-----------Additionally, write an estimate how many hours you spent on this lab.-----------
+
+10+

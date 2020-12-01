@@ -4,9 +4,9 @@
 #include "Point2D.h"
 #include "CardDeck.h"
 #include <vector>
+#include <iostream>
 using namespace std;
 
-/*
 #pragma region Functions task.1
 //Vehicle creating functions, returns a MotorVehicle object with specified data.
 MotorVehicle uno()
@@ -56,11 +56,11 @@ void engineVectorPop(vector<Engine>* veh, int index)
 	}
 }
 
-//main program
-void task1PimpMyUno()
+//task 1 main program
+void task1()
 {
 	int credits = 10000;
-	vector<Engine> classifieds = { Engine(7.2,8,"Chrysler 440 ci RB V8",2400),Engine(0.07,1,"Sachs 70cc, mikuni 20",350),Engine(1.3,4,"Old 1,3L Saab engine\T",200) };
+	vector<Engine> classifieds = { Engine(7.2,8,"Chrysler 440 ci RB V8",2400),Engine(0.07,1,"Sachs 70cc, mikuni 20",350),Engine(1.3,4,"Old 1,3L Saab engine\t",200) };
 	vector<Engine> engines;
 	vector<MotorVehicle> garage;
 	vector<MotorVehicle> carDealer = { uno(),barracuda(),compact() };
@@ -99,16 +99,17 @@ void task1PimpMyUno()
 			cout << "Input: "; cin >> selected;
 			if (0<selected && selected <=garage.size())//Garage/selected
 			{
+				selected--;
 				while (submenu)//Submenu
 				{
-					cout << "\n\t" << garage[selected - 1].getModel() << "\tMoney: " << credits << "\n";
-					cout << "\n\t1: Inspect vehicle\n\t2: Repaint vehicle (200$)\n\t3: Replace engine\n\t4: Sell vehicle ("<< garage[selected - 1].getValue()/2<<"$)\n\t0: Exit\n";
+					cout << "\n\t" << garage[selected].getModel() << "\tMoney: " << credits << "\n";
+					cout << "\n\t1: Inspect vehicle\n\t2: Repaint vehicle (200$)\n\t3: Replace engine\n\t4: Sell vehicle ("<< garage[selected].getValue()/2<<"$)\n\t0: Exit\n";
 					cout << "Input: "; cin >> input;
-					cout << "\n\t"<< garage[selected - 1].getModel()<<":\n\n";
+					cout << "\n\t"<< garage[selected].getModel()<<":\n\n";
 					switch (input)
 					{
 					case 1://Garage/selected/info
-						garage[selected-1].print();
+						garage[selected].print();
 						break;
 					case 2://Garage/selected/repaint
 						if (200<=credits)
@@ -117,7 +118,7 @@ void task1PimpMyUno()
 							cin.ignore();
 							cout << "\nWhat color would you like? ";
 							getline(cin, color);
-							garage[selected - 1].changeColor(color);
+							garage[selected].changeColor(color);
 							credits -= 200;
 						}
 						else
@@ -135,18 +136,19 @@ void task1PimpMyUno()
 							cout << "\t0: Exit\nInput: "; cin >> input;
 							if (0 < input && input <= engines.size())
 							{
-								Engine temp = garage[selected - 1].getEngine();
-								garage[selected - 1].changeEngine(engines[input - 1]);
-								engines[input - 1] = temp;
+								input--;
+								Engine temp = garage[selected].getEngine();
+								garage[selected].changeEngine(engines[input]);
+								engines[input] = temp;
 							}
 						}
 						else
 							cout << "\nYou got no engines in storage!\n";
 						break;
 					case 4://Garage/selected/Sell
-						credits += garage[selected - 1].getValue() / 2;
-						carDealer.push_back(garage[selected - 1]);
-						vehicleVectorPop(&garage, selected - 1);
+						credits += garage[selected].getValue() / 2;
+						carDealer.push_back(garage[selected]);
+						vehicleVectorPop(&garage, selected);
 					case 0://Garage/selected/Exit
 						submenu = false;
 						break;
@@ -167,11 +169,13 @@ void task1PimpMyUno()
 				cout << "\t0: Exit\n\nInput: "; cin >> input;
 				if (0<input&&input<=carDealer.size())
 				{
-					if (carDealer[input - 1].getValue() < credits)
+					input--;
+					if (carDealer[input].getValue() < credits)
 					{
-						credits -= carDealer[input - 1].getValue();
-						garage.push_back(carDealer[input - 1]);
-						vehicleVectorPop(&carDealer, input - 1);
+						credits -= carDealer[input].getValue();
+						carDealer[input].changeOwner(Owner(name, address));
+						garage.push_back(carDealer[input]);
+						vehicleVectorPop(&carDealer, input);
 					}
 					else
 						cout << "\nNot enough money!\n";
@@ -191,11 +195,12 @@ void task1PimpMyUno()
 				cout << "\t0: Exit\n\nInput: "; cin >> input;
 				if (0 < input&& input <= classifieds.size())
 				{
-					if (classifieds[input - 1].getValue()<credits)
+					input--;
+					if (classifieds[input].getValue()<credits)
 					{
-						credits -= classifieds[input - 1].getValue();
-						engines.push_back(classifieds[input - 1]);
-						engineVectorPop(&classifieds, input - 1);
+						credits -= classifieds[input].getValue();
+						engines.push_back(classifieds[input]);
+						engineVectorPop(&classifieds, input);
 					}
 					else
 						cout << "\nNot enough money!\n";
@@ -215,7 +220,8 @@ void task1PimpMyUno()
 			cout << "Input: "; cin >> selected;
 			if (0 < selected && selected <= garage.size())
 			{
-				cout << "\nYou went for a sweeet ride in you cool " << garage[selected - 1].getModel()<<endl;
+				selected--;
+				cout << "\nYou went for a sweeet ride in you cool " << garage[selected].getModel()<<endl;
 			}
 			break;
 		case 0://exit
@@ -229,7 +235,7 @@ void task1PimpMyUno()
 #pragma endregion
 
 void task2()
-{
+{	//testcode task2...
 	//In main(), write the following test code (in this order):
 
 	//1. create two points and calculate the distance between two points and print the result,
@@ -256,6 +262,7 @@ void task2()
 	cout << "\nis p4 equal to p1?(1/0): " << to_string(p4 == p1);
 	cout << "\nis p4 equal to p2?(1/0): " << to_string(p4 == p2);
 	cout << "\nis p4 equal to p3?(1/0): " << to_string(p4 == p3);
+	cout << endl;
 }
 
 void task3()
@@ -267,7 +274,7 @@ void task3()
 	Point2D p4(4, 4);
 	Point2D p5(5, 5);
 	Polyline pline(3);
-
+	cout << "Created line with max lenth 3...\n";
 	cout << "removing from empty line...\n";
 	pline.removeLast();
 	cout << "adding point p1...\n";
@@ -294,12 +301,43 @@ void task3()
 	pline.removeLast();
 	cout << "does the line still contain p4?(bool:1/0) " << pline.contains(p4) << endl;
 }
-*/
-void main()
+
+void task4()
 {
-	//task1PimpMyUno();
-	//task2();
-	//task3();
 	CardDeck lek;
 	lek.print();
+}
+
+int main()
+{
+	bool menu=true;
+	while (menu)//main menu
+	{
+		cout<<"\n1: Task 1\n2: Task 2\n3: Task 3\n4: Task 4\n0: Exit\n\nInput: ";
+		int x;
+		cin >> x;
+		cout << endl;
+		cin.ignore();
+		switch (x)
+		{
+		case 1:
+			task1();
+			break;
+		case 2:
+			task2();
+			break;
+		case 3:
+			task3();
+			break;
+		case 4:
+			task4();
+			break;
+		case 0:
+			menu = false;
+			break;
+		default:
+			break;
+		}
+	}
+	return 0;
 }

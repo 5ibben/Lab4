@@ -1,7 +1,6 @@
 #include "Card.h"
 #include <cassert>
 #include <iostream>
-using namespace std;
 
 Card::Card(int _value, color _col)
 {
@@ -16,18 +15,18 @@ void Card::print()
 	const char* tab2[] = { "Jack","Queen","King" };
 	if (val==0)
 	{
-		cout << "Joker";
+		std::cout << "Joker";
 	}
 	else if (val == 1)
 	{
-		cout << "Ace";
+		std::cout << "Ace";
 	}
 	else if (val <= 10)
 	{
-		cout << val;
+		std::cout << val;
 	}
 	else
-		cout << tab2[val - 11];
+		std::cout << tab2[val - 11];
 	if (val!=0)
-		cout <<" of "<< tab1[col];
+		std::cout <<" of "<< tab1[col];
 }

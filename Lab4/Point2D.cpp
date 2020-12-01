@@ -1,4 +1,5 @@
 #include "Point2D.h"
+#include <math.h>
 
 Point2D::Point2D()
 	:x(0), y(0) {}

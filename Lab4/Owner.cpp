@@ -1,11 +1,12 @@
 #include "Owner.h"
+#include <iostream>
 
 void Owner::print()
 {
-	cout << "\nOwner:";
-	cout << "\n\tName: " << name << "\n\tAddress: " << address<<"\n\tIs allowed to drive: ";
+	std::cout << "\nOwner:";
+	std::cout << "\n\tName: " << name << "\n\tAddress: " << address<<"\n\tIs allowed to drive: ";
 	if (allowedToDrive)
-		cout << "Yes!\n";
+		std::cout << "Yes!\n";
 	else
-		cout << "No!\n";
+		std::cout << "No!\n";
 }
