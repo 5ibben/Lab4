@@ -3,11 +3,11 @@
 #include <iostream>
 using namespace std;
 
-Card::Card(color _col, int _value)
+Card::Card(int _value, color _col)
 {
-	assert(_value >= 1 && _value <= 13);
-	col = _col;
+	assert(_value >= 0 && _value < 14);
 	val = _value;
+	col = _col;
 }
 
 void Card::print()

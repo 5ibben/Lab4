@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="Body.h" />
     <ClInclude Include="Card.h" />
+    <ClInclude Include="CardDeck.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="MotorVehicle.h" />
     <ClInclude Include="Owner.h" />
@@ -150,6 +151,7 @@
   <ItemGroup>
     <ClCompile Include="Body.cpp" />
     <ClCompile Include="Card.cpp" />
+    <ClCompile Include="CardDeck.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Lab4.cpp" />
     <ClCompile Include="MotorVehicle.cpp" />

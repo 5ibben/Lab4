@@ -2,9 +2,11 @@
 #include "MotorVehicle.h"
 #include "Polyline.h"
 #include "Point2D.h"
+#include "CardDeck.h"
 #include <vector>
 using namespace std;
 
+/*
 #pragma region Functions task.1
 //Vehicle creating functions, returns a MotorVehicle object with specified data.
 MotorVehicle uno()
@@ -292,10 +294,12 @@ void task3()
 	pline.removeLast();
 	cout << "does the line still contain p4?(bool:1/0) " << pline.contains(p4) << endl;
 }
-
+*/
 void main()
 {
 	//task1PimpMyUno();
 	//task2();
 	//task3();
+	CardDeck lek;
+	lek.print();
 }
